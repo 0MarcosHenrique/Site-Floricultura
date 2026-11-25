@@ -205,7 +205,6 @@ a:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
   grid-template-columns: clamp(70px, 5.5vw, 110px) minmax(0, 1fr) clamp(70px, 5.5vw, 110px);
   align-items: stretch;
 }
-.carousel-count { padding-bottom: 7px; font-family: "Boska", Georgia, serif; font-size: 22px; font-weight: 500; white-space: nowrap; }
 .carousel-arrow {
   position: relative;
   z-index: 1;
@@ -265,6 +264,7 @@ a:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
   align-self: center;
   padding: 60px clamp(32px, 7vw, 130px) 60px clamp(16px, 3vw, 60px);
 }
+.arrangement-index { font-size: 12px; font-weight: 700; letter-spacing: .2em; }
 .arrangement-copy h3 {
   max-width: 9ch;
   margin: 22px 0;
@@ -282,7 +282,6 @@ a:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
   .arrangements-heading { display: block; margin-bottom: 30px; padding: 0 22px; }
   .arrangements-heading h2 { font-size: clamp(56px, 13vw, 90px); }
   .arrangements-heading p { margin-top: 20px; }
-  .carousel-count { display: block; margin-top: 22px; padding: 0; }
   .arrangements-stage { grid-template-columns: 44px minmax(0, 1fr) 44px; }
   .carousel-arrow { width: 38px; height: 38px; font-size: 21px; }
   .arrangement-card { min-height: 0; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 56svh) auto; }

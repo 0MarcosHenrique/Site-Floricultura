@@ -38,7 +38,6 @@ const arrangementTrack = document.querySelector('.arrangements-track');
 const arrangementCards = [...arrangementTrack.querySelectorAll('.arrangement-card')];
 const previousArrangement = document.querySelector('[data-carousel-prev]');
 const nextArrangement = document.querySelector('[data-carousel-next]');
-const currentArrangement = document.querySelector('[data-carousel-current]');
 let activeArrangement = 0;
 let carouselScheduled = false;
 
@@ -54,7 +53,6 @@ function updateArrangementControls() {
     }
   });
 
-  currentArrangement.textContent = String(activeArrangement + 1).padStart(2, '0');
   previousArrangement.disabled = activeArrangement === 0;
   nextArrangement.disabled = activeArrangement === arrangementCards.length - 1;
   carouselScheduled = false;
