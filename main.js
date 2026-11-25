@@ -63,7 +63,7 @@ function updateArrangementControls() {
 function goToArrangement(index) {
   const target = arrangementCards[Math.max(0, Math.min(index, arrangementCards.length - 1))];
   const left = target.offsetLeft - arrangementCards[0].offsetLeft;
-  arrangementTrack.scrollTo({ left, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  arrangementTrack.scrollTo({ left, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 }
 
 previousArrangement.addEventListener('click', () => goToArrangement(activeArrangement - 1));
