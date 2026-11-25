@@ -219,37 +219,53 @@ a:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
 .carousel-arrow:disabled { opacity: .35; cursor: default; }
 .carousel-arrow:focus-visible, .arrangements-track:focus-visible { outline: 2px solid var(--forest); outline-offset: 4px; }
 .arrangements-track {
-  --side-padding: clamp(24px, 7vw, 110px);
-  --card-width: clamp(280px, 30vw, 430px);
   display: flex;
-  gap: clamp(14px, 2vw, 26px);
   overflow-x: auto;
-  padding: 0 max(var(--side-padding), calc(100vw - var(--card-width) - var(--side-padding))) 12px var(--side-padding);
-  scroll-padding-inline: var(--side-padding);
+  padding: 0;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   overscroll-behavior-inline: contain;
 }
 .arrangements-track::-webkit-scrollbar { display: none; }
 .arrangement-card {
-  flex: 0 0 var(--card-width);
-  overflow: hidden;
-  scroll-snap-align: start;
-  background: var(--cream);
-  border: 1px solid rgb(23 61 50 / .16);
-}
-.arrangement-image {
-  height: clamp(350px, 35vw, 490px);
+  flex: 0 0 100%;
+  min-width: 0;
+  min-height: min(76svh, 780px);
   display: grid;
-  place-items: end center;
+  grid-template-columns: minmax(0, 56%) minmax(0, 44%);
+  scroll-snap-align: start;
   overflow: hidden;
   background: var(--bouquet-tint);
 }
-.arrangement-image img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
-.arrangement-copy { min-height: 175px; padding: 24px 25px 27px; }
-.arrangement-index { font-size: 10px; font-weight: 700; letter-spacing: .17em; }
-.arrangement-copy h3 { margin: 12px 0 7px; font-family: "Boska", Georgia, serif; font-size: clamp(33px, 3vw, 44px); font-weight: 400; line-height: 1; }
-.arrangement-copy p { margin: 0; max-width: 36ch; font-size: 14px; line-height: 1.45; }
+.arrangement-image {
+  min-width: 0;
+  display: grid;
+  place-items: end center;
+  padding: 24px 4vw 0 7vw;
+}
+.arrangement-image img {
+  display: block;
+  width: 100%;
+  height: min(76svh, 780px);
+  object-fit: contain;
+  object-position: center bottom;
+}
+.arrangement-copy {
+  min-width: 0;
+  align-self: center;
+  padding: 60px clamp(32px, 7vw, 130px) 60px clamp(16px, 3vw, 60px);
+}
+.arrangement-index { font-size: 12px; font-weight: 700; letter-spacing: .2em; }
+.arrangement-copy h3 {
+  max-width: 9ch;
+  margin: 22px 0;
+  font-family: "Boska", Georgia, serif;
+  font-size: clamp(64px, 7.5vw, 136px);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: .91;
+}
+.arrangement-copy p { max-width: 31ch; margin: 0; font-size: clamp(18px, 1.45vw, 23px); line-height: 1.45; }
 .arrangements-hint { max-width: 1600px; margin: 18px auto 0 !important; padding: 0 clamp(24px, 7vw, 110px); font-size: 12px !important; font-weight: 600; letter-spacing: .04em; }
 
 @media (max-width: 700px) {
@@ -258,9 +274,12 @@ a:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
   .arrangements-heading h2 { font-size: clamp(56px, 13vw, 90px); }
   .arrangements-heading p { margin-top: 20px; }
   .carousel-controls { margin-top: 28px; padding: 0; }
-  .arrangements-track { --side-padding: 22px; --card-width: min(82vw, 390px); gap: 14px; }
-  .arrangement-image { height: clamp(320px, 105vw, 460px); }
-  .arrangement-copy { min-height: 165px; padding: 21px 22px 24px; }
+  .arrangement-card { min-height: 0; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 56svh) auto; }
+  .arrangement-image { padding: 18px 20px 0; }
+  .arrangement-image img { height: 56svh; max-height: 560px; }
+  .arrangement-copy { align-self: start; padding: 28px 25px 42px; }
+  .arrangement-copy h3 { max-width: none; margin: 14px 0 12px; font-size: clamp(48px, 12vw, 75px); }
+  .arrangement-copy p { font-size: 17px; }
   .arrangements-hint { padding-inline: 22px; }
 }
 

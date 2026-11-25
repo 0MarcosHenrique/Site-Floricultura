@@ -47,7 +47,7 @@ function updateArrangementControls() {
   let closestDistance = Infinity;
 
   arrangementCards.forEach((card, index) => {
-    const distance = Math.abs(card.getBoundingClientRect().left - trackLeft - parseFloat(getComputedStyle(arrangementTrack).paddingLeft));
+    const distance = Math.abs(card.getBoundingClientRect().left - trackLeft);
     if (distance < closestDistance) {
       closestDistance = distance;
       activeArrangement = index;
