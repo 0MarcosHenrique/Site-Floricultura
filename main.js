@@ -42,6 +42,7 @@ let activeArrangement = 0;
 let carouselScheduled = false;
 
 function updateArrangementControls() {
+  const previousIndex = activeArrangement;
   const trackLeft = arrangementTrack.getBoundingClientRect().left;
   let closestDistance = Infinity;
 
@@ -52,6 +53,11 @@ function updateArrangementControls() {
       activeArrangement = index;
     }
   });
+
+  if (previousIndex !== activeArrangement) {
+    arrangementCards[previousIndex].classList.remove('bouquet-entering');
+    arrangementCards[activeArrangement].classList.add('bouquet-entering');
+  }
 
   previousArrangement.disabled = activeArrangement === 0;
   nextArrangement.disabled = activeArrangement === arrangementCards.length - 1;
@@ -79,3 +85,69 @@ arrangementTrack.addEventListener('scroll', () => {
 }, { passive: true });
 window.addEventListener('resize', updateArrangementControls);
 updateArrangementControls();
+
+// Preencher com DDI + DDD + número quando o WhatsApp da Floria for definido.
+const FLORIA_WHATSAPP = '';
+let selectedArrangement = '';
+const chosenArrangement = document.querySelector('.chosen-arrangement');
+const selectedName = document.querySelector('[data-selected-name]');
+const whatsappButton = document.querySelector('[data-whatsapp]');
+
+document.querySelectorAll('[data-arrangement]').forEach((link) => {
+  link.addEventListener('click', () => {
+    selectedArrangement = link.dataset.arrangement;
+    selectedName.textContent = selectedArrangement;
+    chosenArrangement.hidden = false;
+  });
+});
+
+if (/^\d{10,15}$/.test(FLORIA_WHATSAPP)) {
+  whatsappButton.disabled = false;
+  whatsappButton.addEventListener('click', () => {
+    const message = selectedArrangement
+      ? `Olá, Beatriz! Gostaria de saber mais sobre o arranjo ${selectedArrangement}. Podemos conversar sobre valores e disponibilidade?`
+      : 'Olá, Beatriz! Conheci a Floria pelo site e gostaria de escolher um arranjo. Podemos conversar?';
+    window.open(`https://wa.me/${FLORIA_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+  });
+}
+
+document.querySelector('[data-year]').textContent = new Date().getFullYear();
+
+// Anima cada bloco apenas na primeira vez em que aparece na tela.
+if ('IntersectionObserver' in window) {
+  const entryObserver = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('section-entering');
+        entryObserver.unobserve(entry.target);
+      }
+    }
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll(
+    '.arrangements-heading, .about-portrait, .about-copy, .occasion-intro, .occasion-row, .letter-card'
+  ).forEach((block) => entryObserver.observe(block));
+}
+
+// Cada ocasião aponta para o próprio arranjo da galeria.
+document.querySelectorAll('[data-gallery-choice]').forEach((link) => {
+  link.addEventListener('click', () => {
+    const index = arrangementCards.findIndex((card) =>
+      card.querySelector('[data-arrangement]').dataset.arrangement === link.dataset.galleryChoice
+    );
+    if (index >= 0) goToArrangement(index);
+  });
+});
+
+// O destaque acompanha aria-current, inclusive ao navegar com o teclado.
+for (const link of links) {
+  const flower = document.createElement('span');
+  flower.className = 'nav-flower';
+  flower.setAttribute('aria-hidden', 'true');
+  for (let petal = 0; petal < 5; petal++) {
+    const leaf = document.createElement('i');
+    leaf.style.setProperty('--turn', petal * 72 + 'deg');
+    flower.append(leaf);
+  }
+  link.prepend(flower);
+}
