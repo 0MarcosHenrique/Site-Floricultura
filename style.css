@@ -265,7 +265,6 @@ a:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
   align-self: center;
   padding: 60px clamp(32px, 7vw, 130px) 60px clamp(16px, 3vw, 60px);
 }
-.arrangement-index { font-size: 12px; font-weight: 700; letter-spacing: .2em; }
 .arrangement-copy h3 {
   max-width: 9ch;
   margin: 22px 0;
