@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#a8bda6" />
+    <meta name="description" content="Floria, floricultura de Beatriz em São Paulo." />
+    <title>Floria — Floricultura</title>
+    <link rel="icon" type="image/png" href="./assets/logo-tulipa-fechada.png" />
+    <link rel="preload" href="./assets/fonts/Boska-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./assets/fonts/boska.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Cabeçalho da Floria">
+      <a class="brand-mark" href="#inicio" aria-label="Floria, voltar ao início">
+        <img src="./assets/logo-tulipa-fechada.png" alt="" width="56" height="56" />
+      </a>
+      <nav class="floating-nav" aria-label="Navegação principal" data-current="inicio">
+        <a href="#inicio" aria-current="location">Início</a>
+        <a href="#arranjos">Arranjos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="header-cta" href="#arranjos">Ver flores <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section class="site-shell" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-frame">
+          <h1 id="hero-title">Floria</h1>
+          <img class="hero-flower" src="./assets/ramo-lotus.png" alt="Ramo de lótus com botões rosados" width="1122" height="1402" fetchpriority="high" />
+        </div>
+        <div class="hero-footer">
+          <span>Beatriz</span>
+          <span>São Paulo</span>
+        </div>
+      </section>
+
+      <section class="content-section" id="arranjos" aria-labelledby="arranjos-title">
+        <div class="section-inner">
+          <span class="section-number">01 / Arranjos</span>
+          <h2 id="arranjos-title">Flores para <em>sentir.</em></h2>
+          <p>Cada composição começa com uma flor. O resto é encontro, cor e intenção.</p>
+          <div class="section-flower" aria-hidden="true"><img src="./assets/ramo-lotus.png" alt="" loading="lazy" width="1122" height="1402" /></div>
+        </div>
+      </section>
+
+      <section class="content-section" id="sobre" aria-labelledby="sobre-title">
+        <div class="section-inner">
+          <span class="section-number">02 / Sobre</span>
+          <h2 id="sobre-title">A beleza mora nos <em>detalhes.</em></h2>
+          <p>A Floria floresce em São Paulo pelas mãos de Beatriz.</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="contato" aria-labelledby="contato-title">
+        <div class="section-inner">
+          <span class="section-number">03 / Contato</span>
+          <h2 id="contato-title">Vamos fazer <em>florescer?</em></h2>
+          <p>Em breve, você poderá falar com a Floria por aqui.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+
