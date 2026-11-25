@@ -146,10 +146,27 @@ for (const link of links) {
   const flower = document.createElement('span');
   flower.className = 'nav-flower';
   flower.setAttribute('aria-hidden', 'true');
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', '0 0 20 20');
+  svg.setAttribute('aria-hidden', 'true');
   for (let petal = 0; petal < 5; petal++) {
-    const leaf = document.createElement('i');
-    leaf.style.setProperty('--turn', petal * 72 + 'deg');
-    flower.append(leaf);
+    const leaf = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+    leaf.setAttribute('cx', '10');
+    leaf.setAttribute('cy', '5.5');
+    leaf.setAttribute('rx', '2.6');
+    leaf.setAttribute('ry', '4');
+    leaf.setAttribute('transform', `rotate(${petal * 72} 10 10)`);
+    svg.append(leaf);
   }
+  const center = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  center.setAttribute('cx', '10');
+  center.setAttribute('cy', '10');
+  center.setAttribute('r', '2.5');
+  svg.append(center);
+  flower.append(svg);
   link.prepend(flower);
 }
+
+document.querySelector('.footer-brand').append(
+  links[0].querySelector('.nav-flower').cloneNode(true)
+);

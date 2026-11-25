@@ -339,7 +339,10 @@ button:focus-visible, .text-link:focus-visible { outline: 2px solid currentColor
 .change-arrangement:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 .site-footer { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 24px; padding: 45px clamp(24px, 7vw, 110px) 25px; background: var(--forest); color: var(--cream); border-top: 1px solid rgb(246 243 233 / .2); }
 .footer-brand { display: inline-flex; gap: 20px; align-items: center; width: fit-content; font-size: 64px; line-height: 1; text-decoration: none; letter-spacing: -.05em; }
-.footer-brand span { font-size: 30px; color: var(--rose); }
+.footer-brand .nav-flower { width: 40px; height: 40px; opacity: 1; }
+.footer-brand .nav-flower svg { width: 40px; height: 40px; }
+.footer-brand .nav-flower ellipse { fill: var(--rose); }
+.footer-brand .nav-flower circle { fill: var(--cream); }
 .footer-top { justify-self: end; font-size: 19px; text-decoration: none; }
 .footer-top span { margin-left: 14px; }
 .footer-bottom { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 16px; padding-top: 36px; font-size: 15px; color: #d3dcd0; }
@@ -416,15 +419,16 @@ button:focus-visible, .text-link:focus-visible { outline: 2px solid currentColor
 
 .floating-nav a { position: relative; display: flex; align-items: center; }
 .floating-nav[data-current="ocasioes"] { --nav-accent: #d2dfc6; }
-.nav-flower { position: relative; display: inline-block; width: 0; height: 15px; opacity: 0; pointer-events: none; }
-.nav-flower i { position: absolute; top: 0; left: calc(50% - 2.5px); width: 5px; height: 8px; border-radius: 75% 75% 55% 55%; background: var(--forest); transform-origin: 50% 7.5px; transform: rotate(var(--turn)) scale(.23); }
-.nav-flower::after { content: ''; position: absolute; z-index: 1; left: 50%; top: 50%; width: 5px; height: 5px; border-radius: 50%; background: #eed795; transform: translate(-50%, -50%); }
+.nav-flower { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 0; height: 16px; opacity: 0; pointer-events: none; }
+.nav-flower svg { display: block; flex: none; width: 16px; height: 16px; overflow: visible; }
+.nav-flower ellipse { fill: var(--forest); }
+.nav-flower circle { fill: #eed795; }
 .floating-nav a[aria-current] .nav-flower { width: 15px; margin-right: 6px; opacity: 1; }
-.floating-nav a[aria-current] .nav-flower i { transform: rotate(var(--turn)) scale(1); }
 
 @media (prefers-reduced-motion: no-preference) {
   .nav-flower { transition: width 240ms ease, margin 240ms ease, opacity 180ms ease; }
-  .nav-flower i { transition: transform 480ms cubic-bezier(.16,.72,.23,1); }
+  .nav-flower svg { transition: transform 480ms cubic-bezier(.16,.72,.23,1); }
+  .floating-nav a[aria-current] .nav-flower svg { transform: rotate(72deg); }
 }
 @media (max-width: 700px) {
   .about-section, .occasions { scroll-margin-top: 118px; }
@@ -770,10 +774,15 @@ button:focus-visible, .text-link:focus-visible { outline: 2px solid currentColor
   left: 38%; top: 52%; width: 36%; height: 10%;
   background: radial-gradient(ellipse, #72795f 0, transparent 70%);
 }
+.vase-stems-clip {
+  position: absolute;
+  inset: 0 0 9%;
+  overflow: hidden;
+}
 .vase-branch {
   position: absolute;
-  width: 76%; height: 80%; object-fit: contain;
-  left: 14%; bottom: 14%;
+  width: 100%; height: 96.7%; object-fit: contain;
+  left: 0; bottom: 0;
   transform: rotate(-4deg);
   transform-origin: 44% 92%;
 }
@@ -816,6 +825,7 @@ button:focus-visible, .text-link:focus-visible { outline: 2px solid currentColor
   .vase-intro { margin: -6px 0 0; }
   .vase-scene { grid-row: 3; width: min(100%, 370px); }
   .vase-window { aspect-ratio: 1.18; border-radius: 48% 48% 3px 3px / 52% 52% 3px 3px; }
+  .vase-branch { height: 121%; bottom: -7.7%; }
 }
 @media (max-width: 440px) {
   .floating-nav a { font-size: 14px; padding-inline: 6px; }
@@ -824,5 +834,5 @@ button:focus-visible, .text-link:focus-visible { outline: 2px solid currentColor
 @media (max-width: 390px) {
   .floating-nav { max-width: calc(100% - 6px); }
   .floating-nav a { font-size: 13px; padding-inline: 3px; }
-  .floating-nav .nav-flower { position: absolute; top: -5px; left: calc(50% - 7px); }
+  .floating-nav .nav-flower { position: absolute; top: -5px; left: calc(50% - 7.5px); }
 }
