@@ -127,7 +127,7 @@ if ('IntersectionObserver' in window) {
   }, { threshold: 0.08 });
 
   document.querySelectorAll(
-    '.arrangements-heading, .about-portrait, .about-copy, .occasion-heading, .occasion-covers li, .note-copy, .note-studio'
+    '.arrangements-heading, .about-portrait, .about-copy, .occasion-heading, .occasion-covers li, .vase-scene, .note-copy, .note-studio'
   ).forEach((block) => entryObserver.observe(block));
 }
 

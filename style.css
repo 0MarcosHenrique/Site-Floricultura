@@ -692,3 +692,137 @@ button:focus-visible, .text-link:focus-visible { outline: 2px solid currentColor
   .note-copy h2 { font-size: clamp(62px, 14vw, 94px); }
   .note-studio { width: min(100%, 470px); justify-self: center; }
 }
+
+/* Cuidados com o buquê */
+.floating-nav[data-current="cuidados"] { --nav-accent: #d7e7df; }
+.vase-guide {
+  background: #e9ede3;
+  color: var(--forest);
+  padding: clamp(64px, 7vw, 112px) clamp(22px, 6vw, 100px);
+  scroll-margin-top: 72px;
+}
+.vase-layout {
+  max-width: 1160px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(38px, 9vw, 140px);
+  align-items: center;
+}
+.vase-copy h2 {
+  margin: 0;
+  font-size: clamp(68px, 7.3vw, 112px);
+  font-weight: 400;
+  line-height: .88;
+  letter-spacing: -.055em;
+}
+.vase-copy h2 em { color: #52694e; font-weight: inherit; }
+.vase-intro { max-width: 32ch; margin: 23px 0 28px; font-size: clamp(20px, 2vw, 25px); line-height: 1.32; }
+.vase-tips details { border-top: 1px solid #a7b5a4; }
+.vase-tips details:last-child { border-bottom: 1px solid #a7b5a4; }
+.vase-tips summary {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 36px 14px 0;
+  font-size: clamp(23px, 2vw, 30px);
+  font-weight: 550;
+  line-height: 1.18;
+}
+.vase-tips summary::-webkit-details-marker { display: none; }
+.vase-tips summary::before, .vase-tips summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  width: 15px;
+  height: 1.5px;
+  background: currentColor;
+}
+.vase-tips summary::after { transform: rotate(90deg); }
+.vase-tips details[open] summary::after { transform: rotate(0); }
+.vase-tips summary:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.vase-tips p { max-width: 38ch; margin: 0 22px 18px 0; font-size: 20px; line-height: 1.38; }
+.vase-scene { width: min(100%, 460px); justify-self: center; }
+.vase-window {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  aspect-ratio: 4 / 4.7;
+  border-radius: 48% 48% 4px 4px / 40% 40% 4px 4px;
+  background: linear-gradient(115deg, #e2d9b8, #efebd9 54%, #c0c9b5);
+}
+.vase-light {
+  position: absolute;
+  inset: -30%;
+  background: repeating-linear-gradient(117deg, transparent 0 17%, rgb(255 253 226 / .44) 18% 24%, transparent 25% 29%);
+  transform: translateX(-8%);
+}
+.vase-table {
+  position: absolute;
+  inset: 79% 0 0;
+  background: linear-gradient(170deg, #b6b99d, #e0ddc4 76%);
+  border-top: 1px solid rgb(82 99 69 / .2);
+}
+.vase-table::after {
+  content: "";
+  position: absolute;
+  left: 38%; top: 52%; width: 36%; height: 10%;
+  background: radial-gradient(ellipse, #72795f 0, transparent 70%);
+}
+.vase-branch {
+  position: absolute;
+  width: 76%; height: 80%; object-fit: contain;
+  left: 14%; bottom: 14%;
+  transform: rotate(-4deg);
+  transform-origin: 44% 92%;
+}
+.vase-glass {
+  position: absolute;
+  width: 23%; height: 29%; left: 38%; bottom: 9%;
+  overflow: hidden;
+  border: 2px solid rgb(94 125 115 / .62);
+  border-bottom: 5px solid rgb(101 132 123 / .65);
+  border-radius: 8% 8% 23% 23% / 4% 4% 13% 13%;
+  background: linear-gradient(90deg, #d6e4d754, #f9fff169 12%, #ecf6ee17 36%, #c4d2bf70 82%, #f2fff57a);
+}
+.vase-glass::after {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent 0 7%, #ffffeb4a 8%, #688f801c 11%, transparent 12%);
+}
+.vase-water {
+  position: absolute; inset: 36% 0 0;
+  border-top: 2px solid #eff6e4c9;
+  background: linear-gradient(#b1d5c56e, #749a8d94);
+  transform-origin: bottom;
+}
+.vase-layout:has(details:nth-child(2)[open]) .vase-branch { transform: translateY(2%) rotate(3deg); }
+.vase-layout:has(details:nth-child(3)[open]) .vase-light { transform: translateX(8%); opacity: .42; }
+@media (prefers-reduced-motion: no-preference) {
+  .vase-scene.section-entering { animation: none; }
+  .vase-scene.section-entering .vase-window { animation: vase-reveal 800ms var(--flower-ease) backwards; }
+  .vase-layout:has(details:first-child[open]) .section-entering .vase-water { animation: vase-fill 850ms var(--flower-ease) backwards; }
+  .vase-branch, .vase-light { transition: transform 750ms var(--flower-ease), opacity 650ms ease; }
+  .vase-tips summary::after { transition: transform 180ms ease; }
+  .vase-tips details[open] p { animation: vase-reveal 300ms var(--flower-ease); }
+  @keyframes vase-fill { from { transform: scaleY(.12); } to { transform: scaleY(1); } }
+  @keyframes vase-reveal { from { transform: translateY(12px); opacity: .4; } to { transform: translateY(0); opacity: 1; } }
+}
+@media (max-width: 700px) {
+  .vase-guide { scroll-margin-top: 124px; }
+  .vase-layout { grid-template-columns: 1fr; gap: 28px; }
+  .vase-copy { display: contents; }
+  .vase-copy h2, .vase-intro { grid-column: 1; }
+  .vase-intro { margin: -6px 0 0; }
+  .vase-scene { grid-row: 3; width: min(100%, 370px); }
+  .vase-window { aspect-ratio: 1.18; border-radius: 48% 48% 3px 3px / 52% 52% 3px 3px; }
+}
+@media (max-width: 440px) {
+  .floating-nav a { font-size: 14px; padding-inline: 6px; }
+  .floating-nav a[aria-current] .nav-flower { width: 12px; margin-right: 3px; }
+}
+@media (max-width: 390px) {
+  .floating-nav { max-width: calc(100% - 6px); }
+  .floating-nav a { font-size: 13px; padding-inline: 3px; }
+  .floating-nav .nav-flower { position: absolute; top: -5px; left: calc(50% - 7px); }
+}
