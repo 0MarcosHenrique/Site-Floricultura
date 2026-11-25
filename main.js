@@ -107,8 +107,8 @@ if (/^\d{10,15}$/.test(FLORIA_WHATSAPP)) {
   whatsappButton.disabled = false;
   whatsappButton.addEventListener('click', () => {
     const message = selectedArrangement
-      ? `Olá, Beatriz! Gostaria de saber mais sobre o arranjo ${selectedArrangement}. Podemos conversar sobre valores e disponibilidade?`
-      : 'Olá, Beatriz! Conheci a Floria pelo site e gostaria de escolher um arranjo. Podemos conversar?';
+      ? `Oi, Bia! Gostei do ${selectedArrangement}. Você tem esse buquê disponível? Quanto custa?`
+      : 'Oi, Bia! Vi os buquês no site da Floria. Você me ajuda a escolher um?';
     window.open(`https://wa.me/${FLORIA_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   });
 }
