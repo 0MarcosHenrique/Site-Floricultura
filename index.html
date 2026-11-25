@@ -109,48 +109,91 @@
 
       <section class="occasions" id="ocasioes" aria-labelledby="occasions-title">
         <div class="occasions-inner">
-          <div class="occasion-intro">
-            <span class="section-number">Ocasiões</span>
-            <h2 id="occasions-title">O que você<br>quer <em>dizer?</em></h2>
-            <p>Escolha o seu gesto e descubra um buquê para ele.</p>
-          </div>
-          <ul class="occasion-list">
-            <li><a class="occasion-row" href="#arranjos" data-gallery-choice="Sol de Domingo" aria-label="Celebrar com Sol de Domingo. Ver na galeria.">
-              <img src="./assets/Imagem do ChatGPT 24 de nov. de 2026, 22_19_58.png" alt="" width="105" height="132" loading="lazy" />
-              <span class="occasion-text"><strong>Celebrar</strong><small>Girassóis e cores vivas para um dia de festa.</small></span>
-              <span class="occasion-arrow" aria-hidden="true">↗</span>
-            </a></li>
-            <li><a class="occasion-row" href="#arranjos" data-gallery-choice="Doce Começo" aria-label="Agradecer com Doce Começo. Ver na galeria.">
-              <img src="./assets/Imagem do ChatGPT 24 de nov. de 2026, 22_20_36.png" alt="" width="105" height="132" loading="lazy" />
-              <span class="occasion-text"><strong>Agradecer</strong><small>Tulipas em rosa e branco para dizer obrigado.</small></span>
-              <span class="occasion-arrow" aria-hidden="true">↗</span>
-            </a></li>
-            <li><a class="occasion-row" href="#arranjos" data-gallery-choice="Promessa Rubra" aria-label="Se declarar com Promessa Rubra. Ver na galeria.">
-              <img src="./assets/Imagem do ChatGPT 24 de nov. de 2026, 22_22_00.png" alt="" width="105" height="132" loading="lazy" />
-              <span class="occasion-text"><strong>Se declarar</strong><small>Rosas vermelhas para quando as palavras faltam.</small></span>
-              <span class="occasion-arrow" aria-hidden="true">↗</span>
-            </a></li>
+          <header class="occasion-heading">
+            <h2 id="occasions-title">Flores para cada <em>gesto.</em></h2>
+            <p>Escolha a ocasião para ver o arranjo.</p>
+          </header>
+          <ul class="occasion-covers">
+            <li>
+              <a class="occasion-cover cover-sun" href="#arranjos" data-gallery-choice="Sol de Domingo" aria-label="Celebrar com Sol de Domingo. Ver na galeria.">
+                <div class="cover-art">
+                  <span class="cover-shape" aria-hidden="true"></span>
+                  <h3>Celebrar</h3>
+                  <img src="./assets/Imagem do ChatGPT 24 de nov. de 2026, 22_19_58.png" alt="" width="941" height="1672" loading="lazy" decoding="async" />
+                </div>
+                <div class="cover-caption">
+                  <span><strong>Sol de Domingo</strong><small>Girassóis e rosas</small></span>
+                  <span class="cover-arrow" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 20 20 4 M8 4h12v12" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="occasion-cover cover-petal" href="#arranjos" data-gallery-choice="Doce Começo" aria-label="Agradecer com Doce Começo. Ver na galeria.">
+                <div class="cover-art">
+                  <span class="cover-shape" aria-hidden="true"></span>
+                  <h3>Agradecer</h3>
+                  <img src="./assets/Imagem do ChatGPT 24 de nov. de 2026, 22_20_36.png" alt="" width="941" height="1672" loading="lazy" decoding="async" />
+                </div>
+                <div class="cover-caption">
+                  <span><strong>Doce Começo</strong><small>Tulipas rosas e brancas</small></span>
+                  <span class="cover-arrow" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 20 20 4 M8 4h12v12" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="occasion-cover cover-wine" href="#arranjos" data-gallery-choice="Promessa Rubra" aria-label="Se declarar com Promessa Rubra. Ver na galeria.">
+                <div class="cover-art">
+                  <span class="cover-shape" aria-hidden="true"></span>
+                  <h3>Se declarar</h3>
+                  <img src="./assets/Imagem do ChatGPT 24 de nov. de 2026, 22_22_00.png" alt="" width="941" height="1672" loading="lazy" decoding="async" />
+                </div>
+                <div class="cover-caption">
+                  <span><strong>Promessa Rubra</strong><small>Rosas vermelhas</small></span>
+                  <span class="cover-arrow" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 20 20 4 M8 4h12v12" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </li>
           </ul>
         </div>
       </section>
 
-      <section class="letter-section" id="contato" aria-labelledby="contato-title">
-        <div class="letter-card">
-          <div class="letter-main">
-            <span class="section-number">Contato</span>
-            <h2 id="contato-title">Um bilhete<br>para a <em>Bea.</em></h2>
-            <p>Tem uma cor em mente ou uma data especial? Conte sua ideia e converse sobre o arranjo.</p>
-          </div>
-          <div class="letter-address">
-            <div class="flower-stamp" aria-hidden="true"><img src="./assets/logo-tulipa-fechada.png" width="52" height="62" alt="" /></div>
-            <p class="recipient"><i>Para</i> Beatriz, da Floria</p>
-            <p class="recipient"><i>Em</i> São Paulo, SP</p>
+      <section class="floral-note" id="contato" aria-labelledby="contato-title">
+        <div class="note-layout">
+          <div class="note-copy">
+            <span class="note-label">Contato · Floria</span>
+            <h2 id="contato-title">Vamos falar<br>de <em>flores?</em></h2>
+            <p class="note-invitation">Conte à Bia quem você quer presentear e quando. Ela te ajuda a escolher as flores.</p>
             <div class="chosen-arrangement" hidden>
               <span>Seu arranjo</span>
               <strong data-selected-name></strong>
-              <a href="#arranjos" class="text-link">Trocar <span aria-hidden="true">↗</span></a>
+              <a class="change-arrangement" href="#arranjos">Trocar arranjo <span aria-hidden="true">↗</span></a>
             </div>
-            <button class="contact-button" type="button" data-whatsapp disabled>Falar com Beatriz <span aria-hidden="true">↗</span></button>
+            <button class="contact-button" type="button" data-whatsapp disabled>Conversar com a Bia <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="note-studio" aria-hidden="true">
+            <div class="envelope-scene">
+              <div class="envelope-back"></div>
+              <div class="envelope-flap"></div>
+              <div class="envelope-flowers">
+                <img src="./assets/Imagem do ChatGPT 24 de nov. de 2026, 22_20_36.png" alt="" width="941" height="1672" loading="lazy" decoding="async" />
+              </div>
+              <div class="envelope-front"></div>
+              <div class="envelope-fold"></div>
+              <div class="envelope-seal"><img src="./assets/logo-tulipa-fechada.png" width="32" height="32" alt="" /></div>
+              <span class="envelope-sign">À Bia, com flores.</span>
+            </div>
           </div>
         </div>
       </section>

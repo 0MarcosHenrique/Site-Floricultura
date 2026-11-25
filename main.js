@@ -90,6 +90,7 @@ updateArrangementControls();
 const FLORIA_WHATSAPP = '';
 let selectedArrangement = '';
 const chosenArrangement = document.querySelector('.chosen-arrangement');
+const envelopeBouquet = document.querySelector('.envelope-flowers img');
 const selectedName = document.querySelector('[data-selected-name]');
 const whatsappButton = document.querySelector('[data-whatsapp]');
 
@@ -97,6 +98,7 @@ document.querySelectorAll('[data-arrangement]').forEach((link) => {
   link.addEventListener('click', () => {
     selectedArrangement = link.dataset.arrangement;
     selectedName.textContent = selectedArrangement;
+    envelopeBouquet.src = link.closest('.arrangement-card').querySelector('.arrangement-image img').src;
     chosenArrangement.hidden = false;
   });
 });
@@ -125,7 +127,7 @@ if ('IntersectionObserver' in window) {
   }, { threshold: 0.08 });
 
   document.querySelectorAll(
-    '.arrangements-heading, .about-portrait, .about-copy, .occasion-intro, .occasion-row, .letter-card'
+    '.arrangements-heading, .about-portrait, .about-copy, .occasion-heading, .occasion-covers li, .note-copy, .note-studio'
   ).forEach((block) => entryObserver.observe(block));
 }
 
