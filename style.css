@@ -200,25 +200,35 @@ a:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
 .arrangements-heading .section-number { margin-bottom: 26px; }
 .arrangements-heading h2 { font-size: clamp(64px, 8vw, 126px); }
 .arrangements-heading p { margin-top: 24px; }
-.carousel-controls { display: flex; align-items: center; gap: 10px; padding-bottom: 7px; white-space: nowrap; }
-.carousel-count { margin-right: 13px; font-family: "Boska", Georgia, serif; font-size: 22px; font-weight: 500; }
+.arrangements-stage {
+  display: grid;
+  grid-template-columns: clamp(70px, 5.5vw, 110px) minmax(0, 1fr) clamp(70px, 5.5vw, 110px);
+  align-items: stretch;
+}
+.carousel-count { padding-bottom: 7px; font-family: "Boska", Georgia, serif; font-size: 22px; font-weight: 500; white-space: nowrap; }
 .carousel-arrow {
-  width: 48px;
-  height: 48px;
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  justify-self: center;
+  width: 56px;
+  height: 56px;
   display: grid;
   place-items: center;
   border: 1px solid var(--forest);
   border-radius: 50%;
-  background: transparent;
+  background: rgb(246 243 233 / .9);
   color: var(--forest);
+  box-shadow: 0 5px 20px rgb(23 61 50 / .08);
   font: 25px/1 Arial, Helvetica, sans-serif;
   cursor: pointer;
   transition: background-color .2s ease, color .2s ease;
 }
 .carousel-arrow:not(:disabled):hover { background: var(--forest); color: var(--cream); }
-.carousel-arrow:disabled { opacity: .35; cursor: default; }
+.carousel-arrow:disabled { opacity: .55; cursor: default; }
 .carousel-arrow:focus-visible, .arrangements-track:focus-visible { outline: 2px solid var(--forest); outline-offset: 4px; }
 .arrangements-track {
+  min-width: 0;
   display: flex;
   overflow-x: auto;
   padding: 0;
@@ -273,7 +283,9 @@ a:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
   .arrangements-heading { display: block; margin-bottom: 30px; padding: 0 22px; }
   .arrangements-heading h2 { font-size: clamp(56px, 13vw, 90px); }
   .arrangements-heading p { margin-top: 20px; }
-  .carousel-controls { margin-top: 28px; padding: 0; }
+  .carousel-count { display: block; margin-top: 22px; padding: 0; }
+  .arrangements-stage { grid-template-columns: 44px minmax(0, 1fr) 44px; }
+  .carousel-arrow { width: 38px; height: 38px; font-size: 21px; }
   .arrangement-card { min-height: 0; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 56svh) auto; }
   .arrangement-image { padding: 18px 20px 0; }
   .arrangement-image img { height: 56svh; max-height: 560px; }
